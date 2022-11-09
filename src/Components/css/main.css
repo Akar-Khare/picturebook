@@ -1,0 +1,26 @@
+.card{
+    margin: 8px;
+   
+}
+
+.btn-div{
+   
+    z-index: 3;
+    /* margin-left: auto;
+    margin-right: 0; */
+    width: 20vh;
+    /* margin-top:5vh; */
+    top: 10%;
+    right:0;
+    position: fixed;
+    
+
+    
+}
+.btn{  
+    
+   
+    width: 100%;
+   
+    
+}
