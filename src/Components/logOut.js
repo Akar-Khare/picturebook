@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const LogOut = () => {
+const LogOut = ({setAuth}) => {
     const navigate = useNavigate();
 
     async function getlogOut(){
@@ -17,7 +17,10 @@ const LogOut = () => {
 
         });
 
+        // validate();//from app.js
+
         if(response){
+            setAuth(false);
             console.log(response)
             navigate('/');
         }

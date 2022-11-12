@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
- const SignIn = ()=> {
+ const SignIn = ({setAuth})=> {
 
 
   const navigate = useNavigate();
@@ -44,22 +44,19 @@ import { useNavigate } from "react-router-dom";
       })
     });
 
-    // res.json().then((response)=>{
-    // if(res.status === 201){
-    //   document.getElementById('passNotMatched').innerText="Login Successful";
-    //   setTimeout(()=>navigate('/feeds'),3000);
-    // }
-    // else   
-    // document.getElementById('passNotMatched').innerText=response.error;
-
-    // })
+   
     const response = await res.json();
 
     console.log(response)
 
     if(res.status === 201){
         document.getElementById('passNotMatched').innerText=response.message;
-        setTimeout(()=>navigate('/feeds'),3000);
+        setAuth(true);
+        setTimeout(()=>{
+          navigate('/')
+          console.log("We navigated to /")
+        }
+        ,3000);
       }
       else   
       document.getElementById('passNotMatched').innerText=response.error;

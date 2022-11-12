@@ -30,7 +30,7 @@ import './css/header.css'
 const style={
    textDecoration: 'none' 
 }
-export default function header() {
+export default function header({}) {
   return (
 
     <>
@@ -47,7 +47,7 @@ export default function header() {
       <ul className="navbar-nav ms-auto">
 
       <li className="nav-item">
-      <NavLink  to='/logOut' style={style}><p className='p1'>Logout</p></NavLink >
+      <NavLink  to='/logOut'  style={style}><p className='p1'>Logout</p></NavLink >
       </li>
      
     <li className="nav-item">

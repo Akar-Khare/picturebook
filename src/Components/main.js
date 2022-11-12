@@ -2,6 +2,8 @@ import React, { useState , useEffect} from 'react'
 import './css/main.css'
 import AddImage from './addImage'
 import MainItems from './mainItems'
+import { useNavigate } from "react-router-dom";
+import SignIn from './signIn';
 
 let mainStyle = {
   width: '18rem'
@@ -10,10 +12,16 @@ let mainStyle = {
 
 const Main=()=> {
 
+
+  const navigate = useNavigate();
+
   console.log('main rendered')
   const [cards,setCards] = useState([]);
   const [addBox,setAddBox] = useState(false);
   const [cardId,setCardId] = useState();
+
+
+  
 
  const addDialog = () => {
 
@@ -69,8 +77,14 @@ const deleteItem = (item) =>{
   setCards(newCards)
 }
 
-  return (
+
+
+
+
+return (
   <>
+ 
+
   <div className='btn-div'>
     
     { !addBox &&<button type="button" className='btn btn-success btn-small' onClick={()=>addDialog()}>+ Add Images</button>}
@@ -87,9 +101,10 @@ const deleteItem = (item) =>{
   </div>
 
   { addBox && <AddImage addItem={addItem} close={setAddBox}/>}
-  
+
     </>
   )
+
 
 }
 export default Main;

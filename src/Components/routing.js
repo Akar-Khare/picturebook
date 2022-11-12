@@ -1,55 +1,26 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import SignIn from './signIn'
 import SignUp from './signUp'
 import LogOut from './logOut'
-import Main from './main'
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import PrivateRoute from './privateRoute';
+import Main from './main';
 
-const Routing = () => {
+const Routing = ({isAuthenticated,setAuth}) => {
+  
 
- 
-const navigate = useNavigate();
-  useEffect(()=>{
-
-    
+  console.log("In Routing Auth was "+isAuthenticated )
    
-    const handleLogin = async ()=>{
 
-      console.log("This was rendered")
-      
-      const response = await fetch('/home',{
-        method:'GET',
-        headers: {
-
-            accept: 'application/json',
-            "Content-Type":'application/json'
-        },
-        credentials:'include'
-
-    });
-
-    if(response)
-        console.log(response)
-         
-          
-          if(response.status===201)
-          navigate('/feeds');
-        }
-        
-  handleLogin();
-
-}
-  ,[navigate]) ;
-
-return (
+return  (
     <>
     <div className='main-container'>
     <Routes>
 
-    <Route path="/" element={<SignIn/>}/>
+    <Route path="/signIn"   element={<SignIn setAuth = {setAuth}/>}/>
     <Route path ='/signUp' element = {<SignUp/>}/>
-    <Route path ='/feeds' element = {<Main/>}/>
-    <Route path ='/logOut' element = {<LogOut/>}/>
+    <Route path ='/' element = {<PrivateRoute isAuthenticated = {isAuthenticated}> <Main/> </PrivateRoute>}/>
+    <Route path ='/logOut' element = {<LogOut setAuth = {setAuth}/>}/>
     
     </Routes>
     </div>
