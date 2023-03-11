@@ -1,51 +1,63 @@
 import './Components/css/App.css';
 import Header from './Components/header';
-import Routing from './Components/routing';
-import React, { useEffect, useState } from 'react'
+import Routing from './Components/routes/routing';
+import validateUser from './Components/authentication/userValidation';
+import React, { useEffect, useState,createContext  } from 'react';
+import Footer from './Components/footer';
+
+export const UserContext = createContext();
 function App() {
 
 
-     
-  const [isAuthenticated,setAuth] = useState(false);
-  const [validated,setValidated] = useState(false);
-
+const [isAuthenticated,setAuth] = useState(false);
+const [validated,setValidated] = useState(false);
+const [user,setUser] = useState();
   
+const validate = () =>{
+  validateUser().then((response)=>
+    {
+      console.log("Status was: "+response.status);
 
-  const validateUser = ()=>{ // already login or not
-      fetch('/home',{
-        method:'GET',
-        headers: {
-      
-            accept: 'application/json',
-            "Content-Type":'application/json'
-        },
-        credentials:'include'
-      
-      }).then((response)=>{    
-      
-      if(response.status===201)
-         setAuth(true);
-      else setAuth(false);
-      
-         console.log("Response status is:"+response.status);   
-         console.log("Validation was Done!");
-
-       
-      }).then(()=>{ setValidated(true);})
+      if(response.status===201)        
+    return response.json() 
+    else  return null;
+    
     }
+    ).then((res)=>{ 
+      
+    if(res){
+    setUser({name:res.userName, id: res.userId});
+    setAuth(true)
+    }
+    else {
+      setUser(null);
+      setAuth(false);
+    }
+      //console.log("Parse was: "+user.name);
+     
+      
+    }).finally(()=>setValidated(true))
   
-    useEffect(()=>{ validateUser()},[]);
+  }
 
-    console.log("In App Auth was "+isAuthenticated )
-    console.log("Validated :"+validated);
+  
+   
 
+    useEffect(()=> {validate()},[]);
 
+ 
+  console.log("this User:"+user)
   return (
    <>
-    
-    <Header />
-    {validated && <Routing isAuthenticated = {isAuthenticated} setAuth = {setAuth}/>}
-    
+  <UserContext.Provider value={user}>
+     <Header />
+    </UserContext.Provider>
+
+   <UserContext.Provider value={user}>
+      {validated && <Routing isAuthenticated = {isAuthenticated} user={user} setAuth={setAuth} validateUser = {validate}/>}
+      </UserContext.Provider>
+
+      <Footer/>
   
     </>
   );

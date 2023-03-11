@@ -5,8 +5,12 @@ const {logOut} = require('../controllers/logOut');
 const {signIn} = require('../controllers/signIn');
 const {newCard} =require('../controllers/card');
 const {isAuthenticated} = require('../middlewares/middleware');
-const {home} = require('../controllers/home')
-
+const {home} = require('../controllers/home');
+const {getCards} = require('../controllers/getCards');
+const {getUsers} = require('../controllers/getUsers');
+const {allCards} = require('../controllers/allCards');
+const {liked} =  require('../controllers/liked');
+const {deleteCard} = require('../controllers/deleteCard');
 
 const router = express.Router();
 
@@ -24,10 +28,14 @@ router.get('/about', (req, res) => {
 
 
 router.get('/home',isAuthenticated,home);
-router.post('/upload',newCard )  
+router.post('/upload',isAuthenticated,newCard);  
+router.post('/delete',isAuthenticated,deleteCard);
 router.post('/register',signUp);
 router.post('/login',signIn);
 router.get('/logout',logOut);
+router.route('/cards').get(allCards).post(getCards);
+router.get('/users',isAuthenticated,getUsers);
+router.post('/liked',isAuthenticated,liked)
   
 
 

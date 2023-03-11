@@ -56,7 +56,7 @@ function SignUp() {
      // console.log("User successfully register")
      document.getElementById('passNotMatched').innerText=response.message;
      
-     setTimeout(()=>navigate("/feeds"),1000);
+     setTimeout(()=>navigate("/"),1000);
     }
   }
     );
@@ -66,7 +66,7 @@ function SignUp() {
 
   return (
     
-    <section className="vh-100" style={{backgroundColor: '#eee'}}>
+    <section className="vh-100" style={{backgroundColor: 'black'}}>
     <div className="container h-100">
       <div className="row d-flex justify-content-center align-items-center h-100">
         <div className="col-lg-12 col-xl-11">

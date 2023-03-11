@@ -8,13 +8,14 @@ position: relative;
 .wrapper{
    
    
-    border: 2px solid lightgray ;
+    border: 2px solid black ;
     padding: 20px;
     border-radius: 5%;
     width: 40vh;
     position: absolute;
     top: 60%;
     left: 50%;
+    background-color:lightgray;
    transform: translate(-50%, -50%);
      
   }

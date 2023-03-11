@@ -22,7 +22,7 @@ const LogOut = ({setAuth}) => {
         if(response){
             setAuth(false);
             console.log(response)
-            navigate('/');
+            navigate('/signIn');
         }
     }
     useEffect(()=>{
@@ -31,7 +31,7 @@ const LogOut = ({setAuth}) => {
 
 
   return (
-    <div>logOut</div>
+    <div></div>
   )
 }
 

@@ -1,106 +1,152 @@
-import React, { useState , useEffect} from 'react'
+import React, { useState , useEffect, useContext} from 'react'
 import './css/main.css'
 import AddImage from './addImage'
 import MainItems from './mainItems'
-import { useNavigate } from "react-router-dom";
-import SignIn from './signIn';
-
-let mainStyle = {
-  width: '18rem'
-}
+import { Link, Navigate, useLocation} from "react-router-dom";
+import { UserContext } from '../App';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
 
-const Main=()=> {
+const Main=({profile})=> {
 
 
-  const navigate = useNavigate();
 
-  console.log('main rendered')
+  
+  console.log('main rendered');
+
   const [cards,setCards] = useState([]);
   const [addBox,setAddBox] = useState(false);
-  const [cardId,setCardId] = useState();
+  const [user,setUser] = useState();
+  const {state} = useLocation();
+  const thisUser = useContext(UserContext);
+  const [show, setShow] = useState(false);
+  const [delId,setDelId] = useState();
+  const [about,showAbout] =useState(false);
 
+  const handleClose = () => {
+    setShow(false);
+    setDelId(null);
+  }
+  const handleDelete = (id) => {
+
+    setDelId(id);
+    setShow(true);
+    
+
+  }
+  console.log("thisUser:"+thisUser)
+
+  useEffect(()=>{
+
+    if(profile)
+    setUser(thisUser);
+    else
+    setUser({name:state.name,id:state.userId});
+
+    
+    
+},[]);
+
+  const getCards = async () =>{
+
+    const res = await fetch("/cards",{
+
+      method :'POST',
+      headers:{
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({userId:user.id})
+     
+    });
+
+    const data = await res.json();
+
+    setCards(data);
+    
+
+  }
+
+
+  useEffect(()=>{ user && getCards()},[user,addBox,delId]);
+  
+
+  const addDialog = () => setAddBox(true);
 
   
 
- const addDialog = () => {
+  const deleteItem = () =>{
+   fetch("/delete",{
 
-  setAddBox(true);
+      method :'POST',
+      headers:{
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({id:delId})
+     
+    }).then((res)=>res.json())
+    .then((res)=>{
+      res.status === '201' && handleClose();
+    });
 
- }
+    
 
- const postData = async (data) =>{
-
-
-  const {src, name, desc} = data;
-
- console.log(data);
-  
-  
-  const res = await fetch("/register",{
-
-    method :'POST',
-    headers:{
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(
-      { link:"https://picsum.photos/200?random="+cardId,
-       name, 
-       desc}
-    )
-  })
-
- }
-
-const addItem = (formData) =>{
-
-
-    setCardId(Math.floor(Math.random()*1000));
-    setCards(
-   
-      [{
-
-        imgSrc: formData.src ? formData.src : "https://picsum.photos/200?random="+cardId,
-        cardName: formData.name ? formData.name:cardId,
-        cardDesc: formData.desc
-      },...cards]
-  
-    );
-    setAddBox(false);
-
-   postData(formData);
-  
-} 
-const deleteItem = (item) =>{
-  let newCards = cards.slice();
-  newCards.splice(item,1);
-  setCards(newCards)
 }
 
 
 
 
-
-return (
+  return (
   <>
- 
+  
+  <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Delete</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+         Are you sure you want to delete this item?
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" style={{width:'fit-content'}} onClick={handleClose}>
+            Cancel
+          </Button>
+          <Button variant="danger" style={{width:'fit-content'}} onClick={()=>{deleteItem()}}>Delete</Button>
+        </Modal.Footer>
+      </Modal>
 
   <div className='btn-div'>
     
-    { !addBox &&<button type="button" className='btn btn-success btn-small' onClick={()=>addDialog()}>+ Add Images</button>}
+    {/* add Image button */}
     
+    {profile && !addBox &&<button style={{width:"fit-content"}} type="button" className='btn btn-success btn-small' onClick={()=>addDialog()}>+ Add Images</button>}
+  <button className='btn btn-secondary btn-small' style={{width:"fit-content",marginLeft:"5px"}} onClick={()=>{showAbout(true)}}>Profile</button>
      
-  </div>
     
+
+  </div>
+
+    { about && <Navigate to="/about" state={user}/>}
+     {/* add Image dialog */}
+    { profile && addBox && <AddImage setAddBox={setAddBox} getCards={getCards}/>} 
+
+    {user && <div><h5>{user.name}</h5><h6 style={{color:"grey"}}>Gallery</h6></div>}
   <div className={addBox ? 'card-container-blur' : 'card-container'}>
   
-  {cards.map((item)=><MainItems data={item} delete={deleteItem} id={cards.indexOf(item)} />
+
+   {/* Main cards */}
+  
+  {cards && cards.map((item)=><MainItems handleDelete={handleDelete} data={item} deleteItem={deleteItem} posted={true} profile={profile} />
   )}
     
   
   </div>
 
-  { addBox && <AddImage addItem={addItem} close={setAddBox}/>}
 
     </>
   )

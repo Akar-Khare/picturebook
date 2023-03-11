@@ -24,14 +24,14 @@
     text-align: center;
 
     backdrop-filter: blur(20px);
-    padding: 20px;
+    padding: 10px;
     width: fit-content;
     height: fit-content;
     margin: auto;
     left: 0;
     right: 0;
     top:20vh;
-    position: absolute;
+    position: fixed;
    
   
     opacity: 0;

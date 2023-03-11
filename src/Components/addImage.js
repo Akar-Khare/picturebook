@@ -5,18 +5,44 @@ function AddImage(props) {
 
 const [formData,setformData] = useState({
  
-  src: '',
+  link: '',
   name:'',
   desc:''
 });  
 
+const postData = async (data) =>{
+
+ console.log(data);
+  
+  
+  const res = await fetch("/upload",{
+
+    method :'POST',
+    headers:{
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+
+   const response = await res.json();
+  console.log("Response from card saving :"+response.info);
+
+ }
 
 
 const addSubmit = () =>{
-  console.log(formData)
- 
+  console.log(formData);
+  
+  let cardId = Math.floor(Math.random()*1000);
+  let newData =  {
+    key: cardId,
+    link: formData.link ? formData.link : "https://picsum.photos/200?random="+cardId,
+    name: formData.name ? formData.name:cardId,
+    desc: formData.desc ? formData.desc:""
+  };
 
- props.addItem(formData);
+  postData(newData);
+  props.setAddBox(false);
  
 }
   return (

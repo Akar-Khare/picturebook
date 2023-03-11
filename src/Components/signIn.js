@@ -1,18 +1,16 @@
 import React, { useState ,useEffect} from 'react'
 import './css/signIn.css'
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
  
 
 
 
- const SignIn = ({setAuth})=> {
+ const SignIn = ({validateUser,isAuthenticated})=> {
 
 
-  const navigate = useNavigate();
   
- 
-
+  
   const [loginForm,setLoginForm] = useState({ email:"", password:""});
 
   const handleRegChange = (e)=>{
@@ -47,16 +45,14 @@ import { useNavigate } from "react-router-dom";
    
     const response = await res.json();
 
-    console.log(response)
+    console.log(response);
 
     if(res.status === 201){
         document.getElementById('passNotMatched').innerText=response.message;
-        setAuth(true);
-        setTimeout(()=>{
-          navigate('/')
-          console.log("We navigated to /")
-        }
-        ,3000);
+        validateUser();
+         
+      
+       
       }
       else   
       document.getElementById('passNotMatched').innerText=response.error;
@@ -65,6 +61,7 @@ import { useNavigate } from "react-router-dom";
 
   }
 
+  useEffect(()=>{validateUser()},[])
   return (
     <>
      
@@ -81,13 +78,12 @@ import { useNavigate } from "react-router-dom";
      <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
      <input type="password" name="password" onChange={(e)=>handleRegChange(e)} className="form-control" id="exampleInputPassword1" required/>
    </div>
-   {/* <div className="mb-3 form-check">
-     <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-     <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-   </div> */}
+ 
    <div id="passNotMatched"></div>
    <button type="submit" className="btn btn-primary">Log In</button>
  </form></div>
+
+ {isAuthenticated && <Navigate to="/"/> }
    
     </>
    )

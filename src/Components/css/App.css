@@ -39,27 +39,44 @@
 
 .main-container{
 
-    
+    border: 1px solid darkgray;
     width: 100vw;
     min-height: 90vh;
     position: relative;
-  
-    padding: 40px;
+    padding: 0px 40px;
+    
     
 }
 .card-container{
-  border: 2px solid;
+  
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: middle;
   margin-top: 10vh;
   width: fit-content;
   transition: width 2s;
+  outline: none;
+}
+
+.users-container{
+  
+  display: flex;
+  flex-direction: row;
+  /* border: 2px solid; */
+  
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 10vh;
+  width: 100%;
+  transition: width 2s;
+  outline: none;
 
 }
 .card-container-blur{
-  border: 2px solid;
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -68,11 +85,11 @@
   margin-top: 10vh;
  width: fit-content;
  transition: width 2s;
-
+ outline: none;
 }
 
 .card-text{
-  white-space: nowrap;
+  /* white-space: nowrap; */
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 3;
@@ -80,5 +97,14 @@
   display: -webkit-box;
 -webkit-line-clamp: 3;
 -webkit-box-orient: vertical; 
-
+outline: none;
 }
+body {
+  padding-top: 90px;
+  /* background-image: linear-gradient(to bottom right, red, yellow); */
+  background-color: wheat;
+  outline: none;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+ }

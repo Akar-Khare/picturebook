@@ -1,17 +1,27 @@
-exports.newCard = ((req, res) => {
+const Card = require('../schema/CardSchema');
+
+exports.newCard = (async (req, res) => {
   
-    console.log(req.body)
+   
 
-  const{link, name ,desc} = req.body;
+  const{key, link, name ,desc} = req.body;
 
-    const newCard = new card({
-      userId,  
-      link,
-      name,
-      desc
+  const userId =  req.user._id;
+  const userName = req.user.name;
+
+  //const findUser = await Card.findOne({userId: userId});
+  
+ 
+    const newCard = new Card({
+    userId, 
+    userName,
+    card: {key,link,name,desc,count:0,likedBy:[]}
     })
     
-    newCard.save()
+    newCard.save();
 
-    res.send('Card Saved')
+    res.status(201).json({info:'Card created'});
+  
+  
+   
   })

@@ -1,4 +1,3 @@
-
 const User = require('../schema/UserSchema');
 
 
@@ -22,7 +21,7 @@ exports.signIn = (async (req, res) => {
 
           res.cookie("jwtoken",token,{
 
-            expires: new Date(Date.now()+111110000),
+            expires: new Date(Date.now()+86400000),
             httpOnly: true
           });
           
@@ -32,6 +31,7 @@ exports.signIn = (async (req, res) => {
          res.status(422).json({error: "Wrong Password"});
     
         }
+        else  res.status(422).json({error: "Invalid email address"});
     
       }
       catch(err){
