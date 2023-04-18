@@ -16,6 +16,6 @@ app.use(require('./router/auth'));
 
 
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`Example app listening on port ${port}`)
 })
