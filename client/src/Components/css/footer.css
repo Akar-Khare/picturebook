@@ -1,0 +1,32 @@
+.footer{
+    display: block;
+    position: relative;
+    width: 100vw;
+    top: 90vh;
+    /* border: 2px solid pink; */
+    font-family: Akaya Kanadaka;
+    padding: 25px;
+    
+    background-color: palevioletred;
+   
+}
+.content{
+    display: flex;
+    color:wheat;
+    flex-direction: row;
+   
+    justify-content:space-around;
+    font-weight: lighter;
+    
+}
+a { 
+    color: inherit;
+    text-decoration:none; 
+    
+ } 
+
+a:hover {
+    color: inherit;
+    cursor:pointer;  
+    
+}

@@ -1,0 +1,14 @@
+#select-card{
+
+width: 18rem;
+
+height :fit-content;
+border : 2px solid grey;
+cursor: pointer;
+transition: 0.2s;
+} 
+
+
+#select-card:hover{
+    transform: scale(1.1);
+}

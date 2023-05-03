@@ -1,0 +1,43 @@
+.container{
+
+width: 100vw;
+height: 80vh;
+position: relative;
+
+}
+.wrapper{
+   
+   
+    border: 2px solid black ;
+    padding: 20px;
+    border-radius: 5%;
+    width: 40vh;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    background-color:lightgray;
+   transform: translate(-50%, -50%);
+     
+  }
+
+  @media screen and (max-width: 500px) {
+   .wrapper{
+        width: 90%;
+       
+    }
+}
+label{
+  font-family:'Akaya Kanadaka';
+  font-weight: bold;
+}
+
+h2{
+  font-family:'Sofia';
+  font-weight: bold;
+}
+#passNotMatched{
+  color:red;
+margin-bottom: 5px;
+  text-align: center;
+  
+}

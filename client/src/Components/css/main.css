@@ -1,0 +1,21 @@
+.card{
+    margin: 8px;
+}
+
+.btn-div{
+   
+    z-index: 3;
+    width: auto;
+    left: 5px;
+    right: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: right;
+    position:fixed;
+    /* border: 2px solid; */
+    
+}
+.btn{  
+    
+    width: 100%;   
+}
