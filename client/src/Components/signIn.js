@@ -37,7 +37,7 @@ console.log("Sign in is"+isAuthenticated)
      
       headers:{
         "Content-Type":'text/plain',
-        "Access-Control-Allow-Origin":'https://pictbook69.netlify.app'
+        "Access-Control-Allow-Origin":'https://pictbook.onrender.com'
       },
       body: JSON.stringify({
         email,password
