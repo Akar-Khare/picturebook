@@ -41,8 +41,8 @@ console.log("Sign in is"+isAuthenticated)
       },
       body: JSON.stringify({
         email,password
-      }),
-      credentials:"include"
+      })
+      
     }).then((response)=>
     {
       console.log("Status Login was: "+response.status);
