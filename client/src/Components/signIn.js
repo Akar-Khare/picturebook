@@ -37,7 +37,7 @@ console.log("Sign in is"+isAuthenticated)
      
       headers:{
         "Content-Type":'application/json',
-        accept: 'application/json'
+        accept: '*'
         
       },
       body: JSON.stringify({
