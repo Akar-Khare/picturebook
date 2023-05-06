@@ -36,7 +36,7 @@ console.log("Sign in is"+isAuthenticated)
       method:"POST",
      
       headers:{
-        "Content-Type":'text/plain'
+        "Content-Type":'application/json'
         
       },
       body: JSON.stringify({
