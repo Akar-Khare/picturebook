@@ -34,8 +34,10 @@ console.log("Sign in is"+isAuthenticated)
     
    fetch('https://pbookserver.onrender.com/login',{
       method:"POST",
+      mode:'cors',
       headers:{
-        "Content-Type":'text/plain'
+        "Content-Type":'text/plain',
+       
       },
       body: JSON.stringify({
         email,password
