@@ -47,22 +47,14 @@ console.log("Sign in is"+isAuthenticated)
     {
       console.log("Status Login was: "+response.status);
 
-      if(response.status===201)        
-    return response.json() 
-    else  return null;
-    
-    }).then((res)=>{
-      
-      if(res.status === 201){
-        document.getElementById('passNotMatched').innerText=res.message;
+      if(response.status===201)  {
+        document.getElementById('passNotMatched').innerText=response.json().message;
         validateUser();
-         
-      
        
-      }
+      }   
       else   
-      document.getElementById('passNotMatched').innerText=res.error;
-
+      document.getElementById('passNotMatched').innerText=response.json().error;   
+ 
     });
 
    
