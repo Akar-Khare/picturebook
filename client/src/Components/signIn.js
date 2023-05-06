@@ -35,7 +35,7 @@ console.log("Sign in is"+isAuthenticated)
     const res = await fetch('https://pbookserver.onrender.com/login',{
       method:"POST",
       headers:{
-        "Content-Type":'application/json'
+        "Content-Type":'text/plain'
       },
       body: JSON.stringify({
         email,password
