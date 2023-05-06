@@ -39,7 +39,8 @@ console.log("Sign in is"+isAuthenticated)
       },
       body: JSON.stringify({
         email,password
-      })
+      }),
+      credentials:"include"
     });
 
    
