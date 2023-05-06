@@ -45,17 +45,15 @@ console.log("Sign in is"+isAuthenticated)
       
     }).then((response)=>
     {
-      console.log("Status Login was: "+response.status);
+      // console.log("Status Login was: "+response.status);
 
-      if(response.status===201)  
+     
         return response.json()
       
-      else  
-        return null;
       
 
     }).then((res)=>{
-      if(res){
+      if(res.status === '201'){
 
         document.getElementById('passNotMatched').innerText=res.message;
         validateUser();
