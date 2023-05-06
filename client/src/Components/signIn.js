@@ -61,12 +61,12 @@ console.log("Sign in is"+isAuthenticated)
       else   
       document.getElementById('passNotMatched').innerText=res.error;
 
-    }
+    });
 
    
-    console.log(res);
+    
 
-    const response = await res.json();
+    
 
 
    
