@@ -46,7 +46,7 @@ console.log("Sign in is"+isAuthenticated)
       
     }).then((response)=>
     {
-      // console.log("Status Login was: "+response.status);
+       console.log("Status Login was: "+response);
 
      
         return response.json()
