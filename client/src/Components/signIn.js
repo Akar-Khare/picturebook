@@ -47,7 +47,7 @@ console.log("Sign in is"+isAuthenticated)
     });
     console.log("Status Login was: "+res);
   const res= await response.json();
-      if(res.status === '201'){
+      if(res.status === 201){
 
         document.getElementById('passNotMatched').innerText=res.message;
         validateUser();
