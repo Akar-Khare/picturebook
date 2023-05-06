@@ -32,7 +32,7 @@ console.log("Sign in is"+isAuthenticated)
     
   
     
-   fetch('https://pbookserver.onrender.com/login',{
+    const response = await fetch('https://pbookserver.onrender.com/login',{
       method:"POST",
      
       headers:{
@@ -44,15 +44,8 @@ console.log("Sign in is"+isAuthenticated)
         email,password
       })
       
-    }).then((response)=>
-    {
-      
-      
-      return response.json()
-      
-      
-      
-    }).then((res)=>{
+    });
+  const res= await response.json();
       console.log("Status Login was: "+res);
       if(res.status === '201'){
 
@@ -62,7 +55,7 @@ console.log("Sign in is"+isAuthenticated)
       else   document.getElementById('passNotMatched').innerText=res.error;   
 
 
-    });
+    
 
    
     
