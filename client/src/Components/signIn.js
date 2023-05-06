@@ -42,7 +42,8 @@ console.log("Sign in is"+isAuthenticated)
       },
       body: JSON.stringify({
         email,password
-      })
+      }),
+      credentials:"include"
       
     });
   const res= await response.json();
