@@ -36,8 +36,7 @@ console.log("Sign in is"+isAuthenticated)
       method:"POST",
      
       headers:{
-        "Content-Type":'application/json',
-        accept: '*'
+        "Content-Type":"application/json"
         
       },
       body: JSON.stringify({
@@ -46,8 +45,8 @@ console.log("Sign in is"+isAuthenticated)
       credentials:"include"
       
     });
+    console.log("Status Login was: "+res);
   const res= await response.json();
-      console.log("Status Login was: "+res);
       if(res.status === '201'){
 
         document.getElementById('passNotMatched').innerText=res.message;
@@ -56,12 +55,7 @@ console.log("Sign in is"+isAuthenticated)
       else   document.getElementById('passNotMatched').innerText=res.error;   
 
 
-    
-
-   
-    
-
-    
+  
 
 
    
