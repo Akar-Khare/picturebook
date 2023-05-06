@@ -44,9 +44,10 @@ console.log("Sign in is"+isAuthenticated)
     });
 
    
+    console.log(res);
+    
     const response = await res.json();
 
-    console.log(response);
 
     if(res.status === 201){
         document.getElementById('passNotMatched').innerText=response.message;
