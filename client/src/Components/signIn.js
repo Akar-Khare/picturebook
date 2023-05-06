@@ -34,10 +34,10 @@ console.log("Sign in is"+isAuthenticated)
     
    fetch('https://pbookserver.onrender.com/login',{
       method:"POST",
-      mode:'cors',
+     
       headers:{
         "Content-Type":'text/plain',
-       
+        "Access-Control-Allow-Origin":'https://pictbook69.netlify.app'
       },
       body: JSON.stringify({
         email,password
