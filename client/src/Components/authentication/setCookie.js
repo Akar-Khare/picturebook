@@ -9,8 +9,8 @@ const setCookie = (email,password)=> // already login or not
       body:JSON.stringify({
         email,password
       }),
-      credentials:"include",
-      withCredentials:true
+      credentials:"include"
+     
     
     })
 
