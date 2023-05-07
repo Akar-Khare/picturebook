@@ -53,8 +53,10 @@ console.log("Sign in is"+isAuthenticated)
           email,password
         }),{headers:{"Content-Type": "application/json"},credentials:"include"})
         .then((response)=>{
+
+          console.log("Response and data"+response,response.data)
           if(response.status === 201)
-          return response.json();
+           return response.json();
           else return null; 
         }).then((res)=>{
           
