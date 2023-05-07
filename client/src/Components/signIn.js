@@ -2,7 +2,7 @@ import React, { useState ,useEffect} from 'react'
 import './css/signIn.css'
 import { Navigate } from "react-router-dom";
 import axios from 'axios';
- 
+import setCookie from './authentication/setCookie';
 
 
 
@@ -59,6 +59,7 @@ console.log("Sign in is"+isAuthenticated)
           console.log("Response and data"+response,response.cookie)
           if(response.status === 201)
           {
+            setCookie();
            // validateUser();
             document.getElementById('passNotMatched').innerText=response.data.message;
           }
