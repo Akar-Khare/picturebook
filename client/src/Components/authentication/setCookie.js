@@ -4,7 +4,7 @@ const setCookie = (email,password)=> // already login or not
       headers: {
     
          
-          "Content-Type":'text/plain'
+          "Content-Type":'application/json'
       },
       body:JSON.stringify({
         email,password
