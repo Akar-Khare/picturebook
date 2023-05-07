@@ -56,18 +56,12 @@ console.log("Sign in is"+isAuthenticated)
 
           console.log("Response and data"+response,response.data)
           if(response.status === 201)
-           return response.json();
-          else return null; 
-        }).then((res)=>{
-          
-          console.log("Status Login was: "+res);
-          if(res){
+          {
             validateUser();
-            document.getElementById('passNotMatched').innerText=res.message;
+            document.getElementById('passNotMatched').innerText=response.data.message;
           }
-            else   document.getElementById('passNotMatched').innerText=res.error;
-        })
-    
+          else   document.getElementById('passNotMatched').innerText=response.data.error;
+        });
 
     
 
