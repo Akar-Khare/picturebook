@@ -3,8 +3,8 @@ const setCookie = (email,password)=> // already login or not
       method:'POST',
       headers: {
     
-          accept: 'application/json',
-          "Content-Type":'application/json'
+         
+          "Content-Type":'text/plain'
       },
       body:JSON.stringify({
         email,password
