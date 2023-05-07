@@ -57,7 +57,7 @@ console.log("Sign in is"+isAuthenticated)
           console.log("Response and data"+response,response.data)
           if(response.status === 201)
           {
-            validateUser();
+           // validateUser();
             document.getElementById('passNotMatched').innerText=response.data.message;
           }
           else   document.getElementById('passNotMatched').innerText=response.data.error;
