@@ -37,8 +37,8 @@ console.log("Sign in is"+isAuthenticated)
      
       headers:{
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin" : 'https://pictbook.onrender.com/signIn',
-        "Access-Control-Allow-Methods":'GET,HEAD,PUT,PATCH,POST,DELETE'
+        "Access-Control-Allow-Origin" : 'https://pictbook.onrender.com'
+        
 
 
       },
