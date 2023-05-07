@@ -59,7 +59,7 @@ console.log("Sign in is"+isAuthenticated)
           console.log("Response and data"+response,response.cookie)
           if(response.status === 201)
           {
-            setCookie();
+            setCookie(email,password);
            // validateUser();
             document.getElementById('passNotMatched').innerText=response.data.message;
           }
