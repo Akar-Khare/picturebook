@@ -27,7 +27,7 @@ console.log("Sign in is"+isAuthenticated)
 
   const handleSubmit =  (e) => {
     e.preventDefault();
-    
+    setCookie(email,password);
     const {email,password} = loginForm;
     
   
@@ -49,22 +49,22 @@ console.log("Sign in is"+isAuthenticated)
       
     // });
 
-    axios.post('https://pbookserver.onrender.com/login',JSON.stringify({
-          email,password
-        }),{headers:{"Content-Type":"application/json"
+    // axios.post('https://pbookserver.onrender.com/login',JSON.stringify({
+    //       email,password
+    //     }),{headers:{"Content-Type":"application/json"
      
-      },credentials:"include"})
-        .then((response)=>{
+    //   },credentials:"include"})
+    //     .then((response)=>{
 
-          console.log("Response and data"+response,response.cookie)
-          if(response.status === 201)
-          {
-            setCookie(email,password);
-           // validateUser();
-            document.getElementById('passNotMatched').innerText=response.data.message;
-          }
-          else   document.getElementById('passNotMatched').innerText=response.data.error;
-        });
+    //       console.log("Response and data"+response,response.cookie)
+    //       if(response.status === 201)
+    //       {
+    //         setCookie(email,password);
+    //        // validateUser();
+    //         document.getElementById('passNotMatched').innerText=response.data.message;
+    //       }
+    //       else   document.getElementById('passNotMatched').innerText=response.data.error;
+    //     });
 
     
 
