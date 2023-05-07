@@ -51,12 +51,12 @@ console.log("Sign in is"+isAuthenticated)
 
     axios.post('https://pbookserver.onrender.com/login',JSON.stringify({
           email,password
-        }),{headers:{"Content-Type":"application/json",
-        "Access-Control-Allow-Origin":"*"
+        }),{headers:{"Content-Type":"application/json"
+     
       },credentials:"include"})
         .then((response)=>{
 
-          console.log("Response and data"+response,response.data)
+          console.log("Response and data"+response,response.cookie)
           if(response.status === 201)
           {
            // validateUser();
