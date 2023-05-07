@@ -51,7 +51,7 @@ console.log("Sign in is"+isAuthenticated)
 
     axios.post('https://pbookserver.onrender.com/login',JSON.stringify({
           email,password
-        }),{headers:{"Content-Type": "text/plain"},credentials:"include"})
+        }),{credentials:"include"})
         .then((response)=>{
 
           console.log("Response and data"+response,response.data)
