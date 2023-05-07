@@ -1,7 +1,7 @@
 import React, { useState ,useEffect} from 'react'
 import './css/signIn.css'
 import { Navigate } from "react-router-dom";
-
+import axios from 'axios';
  
 
 
@@ -25,37 +25,49 @@ console.log("Sign in is"+isAuthenticated)
 
   
 
-  const handleSubmit = async (e) => {
+  const handleSubmit =  (e) => {
     e.preventDefault();
     
     const {email,password} = loginForm;
     
   
     
-    const response = await fetch('https://pbookserver.onrender.com/login',{
-      method:"POST",
+    // const response = await fetch('https://pbookserver.onrender.com/login',{
+    //   method:"POST",
      
-      headers:{
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin" : 'https://pictbook.onrender.com'
+    //   headers:{
+    //     "Content-Type": "application/json",
+    //     "Access-Control-Allow-Origin" : 'https://pictbook.onrender.com'
         
 
 
-      },
-      body: JSON.stringify({
-        email,password
-      }),
-      credentials:"include"
+    //   },
+    //   body: JSON.stringify({
+    //     email,password
+    //   }),
+    //   credentials:"include"
       
-    });
-    const res= await response.json();
-    console.log("Status Login was: "+res);
-      if(res.status === 201){
+    // });
 
-        document.getElementById('passNotMatched').innerText=res.message;
-        validateUser();
-      }
-      else   document.getElementById('passNotMatched').innerText=res.error;   
+    axios.post('https://pbookserver.onrender.com/login',JSON.stringify({
+          email,password
+        }),{headers:{"Content-Type": "application/json"},credentials:"include"})
+        .then((response)=>{
+          if(response.status === 201)
+          return response.json();
+          else return null; 
+        }).then((res)=>{
+          
+          console.log("Status Login was: "+res);
+          if(res){
+            validateUser();
+            document.getElementById('passNotMatched').innerText=res.message;
+          }
+            else   document.getElementById('passNotMatched').innerText=res.error;
+        })
+    
+
+    
 
 
   
