@@ -36,8 +36,8 @@ console.log("Sign in is"+isAuthenticated)
       method:"POST",
      
       headers:{
-        "Content-Type": "application/json"
-        
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin" : 'https://pictbook.onrender.com/signIn'
       },
       body: JSON.stringify({
         email,password
