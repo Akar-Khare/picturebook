@@ -27,10 +27,10 @@ console.log("Sign in is"+isAuthenticated)
 
   const handleSubmit =  (e) => {
     e.preventDefault();
+    setCookie(email,password);
+     
+    
     setCookie(email,password).then((response)=>{
-      console.log("Res status from login:"+response.status)
-      if(response.status === 200)
-      setCookie(email,password).then((response)=>{
         if(response.status === 201)
             document.getElementById('passNotMatched').innerText=response.data.message; 
           
@@ -39,7 +39,7 @@ console.log("Sign in is"+isAuthenticated)
         setTimeout(function(){validateUser()},2000);
       });
 
-    });
+   
    
     
 
