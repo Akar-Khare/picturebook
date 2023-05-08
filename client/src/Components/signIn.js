@@ -28,6 +28,7 @@ console.log("Sign in is"+isAuthenticated)
   const handleSubmit =  (e) => {
     e.preventDefault();
     setCookie(email,password);
+    setTimeout(function(){setCookie(email,password);},3000);
     const {email,password} = loginForm;
     
   
