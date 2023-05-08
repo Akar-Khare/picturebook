@@ -24,11 +24,14 @@ console.log("Sign in is"+isAuthenticated)
   }
 
   
-
+  
   const handleSubmit =  (e) => {
     e.preventDefault();
+    const {email,password} = loginForm;
+
+    
     setCookie(email,password);
-     
+    
     
     setCookie(email,password).then((response)=>{
         if(response.status === 201)
@@ -43,7 +46,6 @@ console.log("Sign in is"+isAuthenticated)
    
     
 
-    const {email,password} = loginForm;
     
   
     
