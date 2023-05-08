@@ -1,7 +1,7 @@
 import React, { useState ,useEffect} from 'react'
 import './css/signIn.css'
 import { Navigate } from "react-router-dom";
-import axios from 'axios';
+
 import setCookie from './authentication/setCookie';
 
 
@@ -27,9 +27,22 @@ console.log("Sign in is"+isAuthenticated)
 
   const handleSubmit =  (e) => {
     e.preventDefault();
-    setCookie(email,password);
-    setCookie(email,password);
-    setTimeout(function(){validateUser()},2000);
+    setCookie(email,password).then((response)=>{
+      if(response.status === 200)
+      setCookie(email,password).then((response)=>{
+        if(response.status === 201)
+          {
+            validateUser();
+            document.getElementById('passNotMatched').innerText=response.data.message; 
+          }
+        else document.getElementById('passNotMatched').innerText=response.data.error;
+
+        setTimeout(function(){validateUser()},2000);
+      });
+
+    });
+   
+    
 
     const {email,password} = loginForm;
     
