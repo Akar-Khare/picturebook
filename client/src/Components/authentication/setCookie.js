@@ -1,16 +1,14 @@
-import axios from 'axios';
 const setCookie = (email,password)=> // already login or not
-    axios.post('https://pbookserver.onrender.com/setCookie',  
-    JSON.stringify({
-      email,password
-    }),{
-     
+    fetch('https://pbookserver.onrender.com/setCookie',{
+      method:'POST',
       headers: {
     
           Accept:"application/json",
           "Content-Type":"application/json"
       },
-    
+      body:JSON.stringify({
+        email,password
+      }),
       credentials:"include",
       withCredentials:true
     
