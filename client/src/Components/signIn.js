@@ -29,15 +29,15 @@ console.log("Sign in is"+isAuthenticated)
     e.preventDefault();
     const {email,password} = loginForm;
 
-    
+
     setCookie(email,password);
     
     
     setCookie(email,password).then((response)=>{
         if(response.status === 201)
-            document.getElementById('passNotMatched').innerText=response.data.message; 
+            document.getElementById('passNotMatched').innerText=response.json().message; 
           
-        else document.getElementById('passNotMatched').innerText=response.data.error;
+        else document.getElementById('passNotMatched').innerText=response.json().error;
 
         setTimeout(function(){validateUser()},2000);
       });
