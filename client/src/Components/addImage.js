@@ -10,11 +10,11 @@ const [formData,setformData] = useState({
   desc:''
 });  
 
-const postData = async (data) =>{
+const postData =  (data) =>{
   
   console.log(data);
-  
-  const res = await fetch("https://pbookserver.onrender.com/upload",{
+  try{
+  fetch("https://pbookserver.onrender.com/upload",{
     
     method :'POST',
     headers:{
@@ -23,11 +23,14 @@ const postData = async (data) =>{
     },
     body: JSON.stringify(data),
     credentials:"include",
-    
-  })
-  
-  alert("Response from card saving :");
-   const response = await res.json();
+    withCredentials:true
+  }).then((response)=>{
+    alert("Response");
+  });
+}
+catch(error){
+  alert("Error:"+error)
+}
  
 
  }
