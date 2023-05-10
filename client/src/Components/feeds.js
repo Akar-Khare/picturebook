@@ -40,6 +40,9 @@ const Feeds = ({isAuthenticated}) => {
       headers:{
         "Content-Type": "application/json"
       },
+      credentials:"include",
+      withCredentials:true
+,
       body: JSON.stringify({cardId:id,liked:liked})
     }).then((res)=>{
       
