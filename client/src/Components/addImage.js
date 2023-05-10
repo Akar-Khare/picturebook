@@ -5,7 +5,7 @@ function AddImage(props) {
 
 const [formData,setformData] = useState({
  
-  src: null,
+  src: '',
   name:'',
   desc:''
 });  
