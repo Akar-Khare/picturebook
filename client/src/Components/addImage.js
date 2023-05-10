@@ -47,9 +47,9 @@ const addSubmit = () =>{
     desc: formData.desc ? formData.desc:""
   };
 
-  postData(newData);
+  
 
-  setTimeout(function(){props.setAddBox(false)},3000);
+  setTimeout(function(){postData(newData);props.setAddBox(false)},3000);
 
      console.log(reader.result);
  });
