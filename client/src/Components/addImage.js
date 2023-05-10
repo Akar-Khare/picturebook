@@ -36,23 +36,26 @@ const addSubmit = () =>{
   const file = formData.src;
   const reader = new FileReader();
   reader.addEventListener("load", () => {
-     // Base64 Data URL 👇
-     console.log(reader.result);
- });
-  reader.readAsDataURL(file);
-
-
-  // link: formData.link ? formData.link : "https://picsum.photos/200?random="+cardId,
+     // Base64 Data URL 
   let cardId = Math.floor(Math.random()*1000);
   let newData =  {
     key: cardId,
-    imgData: formData.src ? formData.src : "",
+    imgData: reader.result ? reader.result : "",
     name: formData.name ? formData.name:cardId,
     desc: formData.desc ? formData.desc:""
   };
 
   postData(newData);
   props.setAddBox(false);
+
+     console.log(reader.result);
+ });
+  reader.readAsDataURL(file);
+
+
+  // link: formData.link ? formData.link : "https://picsum.photos/200?random="+cardId,
+ 
+  
  
 }
   return (
