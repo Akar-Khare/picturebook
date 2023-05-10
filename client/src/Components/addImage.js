@@ -35,9 +35,12 @@ const addSubmit = () =>{
   
   const file = formData.src;
   const reader = new FileReader();
+  reader.addEventListener("load", () => {
+     // Base64 Data URL 👇
+     console.log(reader.result);
+ });
   reader.readAsDataURL(file);
-  
-  console.log(reader.result);
+
 
   // link: formData.link ? formData.link : "https://picsum.photos/200?random="+cardId,
   let cardId = Math.floor(Math.random()*1000);
