@@ -42,7 +42,7 @@ const addSubmit = () =>{
   let cardId = Math.floor(Math.random()*1000);
   let newData =  {
     key: cardId,
-    imgData: reader.result ? reader.result : "",
+    link: reader.result ? reader.result : "",
     name: formData.name ? formData.name:cardId,
     desc: formData.desc ? formData.desc:""
   };
