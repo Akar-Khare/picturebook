@@ -27,7 +27,7 @@ const postData = async (data) =>{
   })
 
    const response = await res.json();
- alert("Response from card saving :"+response.info);
+ 
 
  }
 
@@ -48,7 +48,7 @@ const addSubmit = () =>{
   };
 
   
-
+  alert("Response from card saving :");
   setTimeout(function(){postData(newData);props.setAddBox(false)},3000);
 
      console.log(reader.result);
