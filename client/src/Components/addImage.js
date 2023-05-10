@@ -48,7 +48,8 @@ const addSubmit = () =>{
   };
 
   postData(newData);
-  props.setAddBox(false);
+
+  setTimeout(function(){props.setAddBox(false)},3000);
 
      console.log(reader.result);
  });
