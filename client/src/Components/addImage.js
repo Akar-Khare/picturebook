@@ -5,7 +5,7 @@ function AddImage(props) {
 
 const [formData,setformData] = useState({
  
-  link: '',
+  src: '',
   name:'',
   desc:''
 });  
@@ -32,11 +32,12 @@ const postData = async (data) =>{
 
 const addSubmit = () =>{
   console.log(formData);
-  
+  console.log(formData.src);
+  // link: formData.link ? formData.link : "https://picsum.photos/200?random="+cardId,
   let cardId = Math.floor(Math.random()*1000);
   let newData =  {
     key: cardId,
-    link: formData.link ? formData.link : "https://picsum.photos/200?random="+cardId,
+    imgData: formData.src ? formData.src : "",
     name: formData.name ? formData.name:cardId,
     desc: formData.desc ? formData.desc:""
   };
@@ -54,7 +55,8 @@ const addSubmit = () =>{
             <p><label htmlFor='img'>Select Image </label>  </p> 
             <input id='img' type='file'  accept="image/*" style={{marginBottom:'10px'}} onChange={(e)=>setformData({
               desc : formData.desc,
-              src: URL.createObjectURL(e.target.files[0]),
+              // src: URL.createObjectURL(e.target.files[0]),
+              src :e,
               name: formData.name
               })}/>
             <p><label htmlFor='cardName'>Card Name </label> </p> 
