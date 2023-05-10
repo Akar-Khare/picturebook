@@ -37,7 +37,7 @@ catch(error){
 
 
 const addSubmit = (e) =>{
-  e.preventDefault;
+  e.preventDefault();
 
   console.log(formData);
   
