@@ -27,7 +27,7 @@ const postData = async (data) =>{
   })
 
    const response = await res.json();
-  console.log("Response from card saving :"+response.info);
+ alert("Response from card saving :"+response.info);
 
  }
 
