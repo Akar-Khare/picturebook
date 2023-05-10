@@ -5,7 +5,7 @@ function AddImage(props) {
 
 const [formData,setformData] = useState({
  
-  src: '',
+  src: null,
   name:'',
   desc:''
 });  
@@ -36,22 +36,24 @@ catch(error){
  }
 
 
-const addSubmit = () =>{
+const addSubmit = (e) =>{
+  e.preventDefault;
+
   console.log(formData);
   
   const file = formData.src;
   const reader = new FileReader();
-  // reader.addEventListener("load", () => {
-  //    // Base64 Data URL 
-  // let cardId = Math.floor(Math.random()*1000);
-  // let newData =  {
-  //   key: cardId,
-  //   link: reader.result ? reader.result : "",
-  //   name: formData.name ? formData.name:cardId,
-  //   desc: formData.desc ? formData.desc:""
-  // };
+  reader.addEventListener("load", () => {
+     // Base64 Data URL 
+  let cardId = Math.floor(Math.random()*1000);
+  let newData =  {
+    key: cardId,
+    link: reader.result ? reader.result : "",
+    name: formData.name ? formData.name:cardId,
+    desc: formData.desc ? formData.desc:""
+  };
 
-  //postData(newData);
+  postData(newData);
 
   setTimeout(function(){props.setAddBox(false)},3000);
 
