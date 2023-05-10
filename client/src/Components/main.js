@@ -82,7 +82,8 @@ const Main=({profile})=> {
       headers:{
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({id:delId})
+      body: JSON.stringify({id:delId}),
+      credentials:"include"
      
     }).then((res)=>res.json())
     .then((res)=>{
