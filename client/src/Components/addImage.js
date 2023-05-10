@@ -35,6 +35,7 @@ const addSubmit = () =>{
   
   const file = formData.src;
   const reader = new FileReader();
+  reader.readAsDataURL(file);
   
   console.log(reader.result);
 
