@@ -23,7 +23,7 @@ const postData = async (data) =>{
     },
     body: JSON.stringify(data),
     credentials:"include",
-    withCredentials:true
+    
   })
   
   alert("Response from card saving :");
