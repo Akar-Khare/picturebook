@@ -19,6 +19,8 @@ function MainItems({data, user,profile, handleDelete,isAuthenticated,posted, lik
   let defaultLike = user && data.card.likedBy.includes(user.id) ? true : false;
   const [liked,setLiked] = useState(defaultLike);
   const [loaded,setLoaded] = useState(false);
+
+  console.log("Data source: "+data.card.link);
   const toggleLike = (value)=>{
 
     setLiked(value);
