@@ -13,7 +13,7 @@ const [formData,setformData] = useState({
 const postData = async (data) =>{
 
  console.log(data);
-  
+ alert("Response from card saving :");
   
   const res = await fetch("https://pbookserver.onrender.com/upload",{
 
@@ -47,9 +47,9 @@ const addSubmit = () =>{
     desc: formData.desc ? formData.desc:""
   };
 
-  
-  alert("Response from card saving :");
-  setTimeout(function(){postData(newData);props.setAddBox(false)},3000);
+  postData(newData);
+
+  setTimeout(function(){props.setAddBox(false)},3000);
 
      console.log(reader.result);
  });
