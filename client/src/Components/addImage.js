@@ -51,7 +51,7 @@ const addSubmit = () =>{
     desc: formData.desc ? formData.desc:""
   };
 
-  postData(newData);
+  //postData(newData);
 
   setTimeout(function(){props.setAddBox(false)},3000);
 
