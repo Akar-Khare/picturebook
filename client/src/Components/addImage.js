@@ -53,7 +53,7 @@ const addSubmit = () =>{
 
   postData(newData);
 
-  setTimeout(function(){props.setAddBox(false)},3000);
+  // setTimeout(function(){props.setAddBox(false)},3000);
 
      console.log(reader.result);
  });
