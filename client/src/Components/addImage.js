@@ -25,7 +25,7 @@ const postData =  (data) =>{
     credentials:"include",
     withCredentials:true
   }).then((response)=>{
-    alert("Response");
+   console.log("Response from upload:"+response)
   });
 }
 catch(error){
