@@ -17,7 +17,9 @@ const Feeds = ({isAuthenticated}) => {
       method :'GET',
       headers:{
         "Content-Type": "application/json"
-      }
+      },
+      credentials:"include",
+      withCredentials:true
     });
   
     

@@ -21,7 +21,9 @@ const postData = async (data) =>{
     headers:{
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
+    credentials:"include",
+    withCredentials:true
   })
 
    const response = await res.json();
