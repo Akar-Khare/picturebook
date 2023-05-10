@@ -56,7 +56,7 @@ const addSubmit = () =>{
             <input id='img' type='file'  accept="image/*" style={{marginBottom:'10px'}} onChange={(e)=>setformData({
               desc : formData.desc,
               // src: URL.createObjectURL(e.target.files[0]),
-              src :URL.createObjectURL(e.target.files[0]),
+              src :e.target.files[0],
               name: formData.name
               })}/>
             <p><label htmlFor='cardName'>Card Name </label> </p> 
