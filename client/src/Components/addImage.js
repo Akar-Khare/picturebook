@@ -91,7 +91,7 @@ const addSubmit = (e) =>{
               desc : e.target.value,
               src:formData.src,
               name: formData.name})}></textarea>
-            <p><button className='upload-btn' onClick={addSubmit}>Upload</button> <button className='upload-btn-cancel' onClick={()=>props.close(false)}>Cancel</button></p>
+            <p><button className='upload-btn' onClick={addSubmit}>Upload</button> <button className='upload-btn-cancel' onClick={(e)=>{e.preventDefault();props.close(false)}}>Cancel</button></p>
            
         </form>
        
