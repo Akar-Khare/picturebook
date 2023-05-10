@@ -41,15 +41,15 @@ const addSubmit = () =>{
   
   const file = formData.src;
   const reader = new FileReader();
-  reader.addEventListener("load", () => {
-     // Base64 Data URL 
-  let cardId = Math.floor(Math.random()*1000);
-  let newData =  {
-    key: cardId,
-    link: reader.result ? reader.result : "",
-    name: formData.name ? formData.name:cardId,
-    desc: formData.desc ? formData.desc:""
-  };
+  // reader.addEventListener("load", () => {
+  //    // Base64 Data URL 
+  // let cardId = Math.floor(Math.random()*1000);
+  // let newData =  {
+  //   key: cardId,
+  //   link: reader.result ? reader.result : "",
+  //   name: formData.name ? formData.name:cardId,
+  //   desc: formData.desc ? formData.desc:""
+  // };
 
   //postData(newData);
 
