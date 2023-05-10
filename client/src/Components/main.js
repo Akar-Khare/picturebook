@@ -76,7 +76,7 @@ const Main=({profile})=> {
   
 
   const deleteItem = () =>{
-   fetch("/delete",{
+   fetch("https://pbookserver.onrender.com/delete",{
 
       method :'POST',
       headers:{
