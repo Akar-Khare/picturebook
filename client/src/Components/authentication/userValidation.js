@@ -5,7 +5,7 @@ const validateUser = ()=> // already login or not
       method:'GET',
       headers: {
     
-          accept: 'application/json',
+          Accept: 'application/json',
           "Content-Type":'application/json'
       },
       credentials:"include",
