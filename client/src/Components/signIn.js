@@ -42,7 +42,7 @@ console.log("Sign in is"+isAuthenticated)
       }).then((res)=>{
         if(res)
         validateUser();
-        else document.getElementById('passNotMatched').innerHTML=res.error;
+        else document.getElementById('passNotMatched').innerText=res.error;
        
 
       });
