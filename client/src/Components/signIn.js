@@ -41,7 +41,7 @@ console.log("Sign in is"+isAuthenticated)
        
       }).then((res)=>{
         if(res)
-        document.getElementById('passNotMatched').innerText=resmessage; 
+        document.getElementById('passNotMatched').innerText=res.message; 
         else document.getElementById('passNotMatched').innerText=res.error;
         validateUser();
 
