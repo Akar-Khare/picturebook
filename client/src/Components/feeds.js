@@ -34,7 +34,7 @@ const Feeds = ({isAuthenticated}) => {
 
   const likePost = (id,liked)=>{
     
-    fetch("/liked",{
+    fetch("https://pbookserver.onrender.com/liked",{
       
       method :'POST',
       headers:{
