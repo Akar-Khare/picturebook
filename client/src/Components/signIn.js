@@ -36,13 +36,13 @@ console.log("Sign in is"+isAuthenticated)
     setCookie(email,password).then((response)=>{
       console.log("LOGIN RESPONSE:"+response);
         if(response.status === 201)
-          return response.json();
+          return null;
 
-        else return null;
+        else return response.json();
        
       }).then((res)=>{
 
-        if(res)
+        if(!res)
         validateUser();
         else document.getElementById('passNotMatched').innerText=res.error;
        
