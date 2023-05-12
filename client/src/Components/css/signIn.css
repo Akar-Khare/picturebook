@@ -35,14 +35,10 @@ h2{
   font-family:'Sofia';
   font-weight: bold;
 }
-.passNotMatched{
- 
-margin-bottom: 5px;
-  text-align: center;
- 
-  
-}
+
 #passNotMatched{
   font-family: 'Times New Roman', Times, serif;
   color:blue;
+  margin-bottom: 5px;
+  text-align: center;
 }
