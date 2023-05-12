@@ -36,7 +36,7 @@ h2{
   font-weight: bold;
 }
 #passNotMatched{
-  color:red;
+  color:orange;
 margin-bottom: 5px;
   text-align: center;
   font-family: 'Times New Roman', Times, serif;
