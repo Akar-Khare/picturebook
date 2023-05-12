@@ -119,7 +119,7 @@ console.log("Sign in is"+isAuthenticated)
      <input type="password" name="password" onChange={(e)=>handleRegChange(e)} className="form-control" id="exampleInputPassword1" required/>
    </div>
  
-   <div className="passNotMatched" ><p id="passNotMatched"></p></div>
+   <div className="passNotMatched" ><p id="passNotMatched">Message Here...</p></div>
    <button type="submit" className="btn btn-primary">Log In</button>
  </form></div>
 
