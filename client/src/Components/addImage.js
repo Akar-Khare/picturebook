@@ -48,7 +48,7 @@ const addSubmit = (e) =>{
   let cardId = Math.floor(Math.random()*1000);
   let newData =  {
     key: cardId,
-    link: reader.result ? reader.result : "",
+    link: reader.result ? reader.result : "https://picsum.photos/200?random="+cardId,
     name: formData.name ? formData.name:cardId,
     desc: formData.desc ? formData.desc:""
   };
