@@ -34,6 +34,7 @@ console.log("Sign in is"+isAuthenticated)
     
     
     setCookie(email,password).then((response)=>{
+      console.log("LOGIN RESPONSE:"+response);
         if(response.status === 201)
           return response.json();
 
@@ -41,7 +42,6 @@ console.log("Sign in is"+isAuthenticated)
        
       }).then((res)=>{
 
-        console.log("LOGIN RESPONSE:"+res);
         if(res)
         validateUser();
         else document.getElementById('passNotMatched').innerText=res.error;
