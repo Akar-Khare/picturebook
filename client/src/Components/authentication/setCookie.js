@@ -12,6 +12,6 @@ const setCookie = (email,password)=> // already login or not
       credentials:"include",
       withCredentials:true
     
-    })
+    });
 
   export default setCookie;
