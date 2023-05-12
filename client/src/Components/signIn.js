@@ -35,11 +35,16 @@ console.log("Sign in is"+isAuthenticated)
     
     setCookie(email,password).then((response)=>{
         if(response.status === 201)
-            document.getElementById('passNotMatched').innerText=response.json().message; 
-          
-        else document.getElementById('passNotMatched').innerText=response.json().error;
+          return response.json();
 
-        setTimeout(function(){validateUser();},2000);
+        else return null;
+       
+      }).then((res)=>{
+        if(response)
+        document.getElementById('passNotMatched').innerText=resmessage; 
+        else document.getElementById('passNotMatched').innerText=res.error;
+        validateUser();
+
       });
 
    
