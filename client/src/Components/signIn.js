@@ -40,6 +40,8 @@ console.log("Sign in is"+isAuthenticated)
         else return null;
        
       }).then((res)=>{
+
+        console.log("LOGIN RESPONSE:"+res);
         if(res)
         validateUser();
         else document.getElementById('passNotMatched').innerText=res.error;
