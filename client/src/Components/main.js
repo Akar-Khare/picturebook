@@ -141,7 +141,7 @@ const Main=({profile})=> {
 
    {/* Main cards */}
   
-  {cards && cards.map((item)=><Suspense><MainItems handleDelete={handleDelete} data={item} deleteItem={deleteItem} posted={true} profile={profile} /></Suspense>
+  {cards && cards.map((item)=><Suspense fallback={<div>LOADING CONTENTS<div>}><MainItems handleDelete={handleDelete} data={item} deleteItem={deleteItem} posted={true} profile={profile} /></Suspense>
   )}
     
   
