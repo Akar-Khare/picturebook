@@ -4,7 +4,6 @@ import Routing from './Components/routes/routing';
 import validateUser from './Components/authentication/userValidation';
 import React, { useEffect, useState,createContext, Suspense  } from 'react';
 import Footer from './Components/footer';
-import { Suspense } from 'react';
 import Loading from './Components/loading';
 export const UserContext = createContext();
 function App() {
