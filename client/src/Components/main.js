@@ -1,12 +1,11 @@
 import React, { useState , useEffect, useContext} from 'react'
 import './css/main.css'
 import AddImage from './addImage'
-import MainItems from './mainItems'
 import { Link, Navigate, useLocation} from "react-router-dom";
 import { UserContext } from '../App';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-
+const MainItems = React.lazy(() => import('./mainItems'));
 
 const Main=({profile})=> {
 
