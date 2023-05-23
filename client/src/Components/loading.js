@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Loading = ({appName}) => {
+const Loading = () => {
   return (
-    <div>Loading {appName}</div>
+    <div>Loading... </div>
   )
 }
 
-export default loading;
+export default Loading;
