@@ -56,7 +56,7 @@
   justify-content: space-around;
   row-gap: 50px;
   margin-top: 10vh;
-  
+  width: fit-content;
   transition: width 2s;
   outline: none;
 }
