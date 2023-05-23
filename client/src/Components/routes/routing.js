@@ -24,7 +24,7 @@ return  (
     <Route path ='/' element = {  <Suspense fallback={<div>Loading Stories.....</div>}><Feeds isAuthenticated={isAuthenticated}/></Suspense>}/>
     <Route path ="/signIn"  element = {<SignIn validateUser = {validateUser} isAuthenticated={isAuthenticated} />}/>
     <Route path ='/signUp' element = {isAuthenticated ? <Feeds isAuthenticated={isAuthenticated}/> :<SignUp/>}/>
-    <Suspense fallback= {<Loading/>}><Route path ='/main' element =  { <Main profile={false}/> }/></Suspense>
+    <Route path ='/main' element =  { <Suspense fallback= {<Loading/>}><Main profile={false}/></Suspense> }/>
     <Route path ='/logOut' element = {<LogOut setAuth = {setAuth}/>}/>
     <Route path ='/people' element = {<People />}/>
     <Route path ='/profile' element = {<PrivateRoute><Main profile={true}/></PrivateRoute>}/>
