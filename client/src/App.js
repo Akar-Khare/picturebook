@@ -2,9 +2,10 @@ import './Components/css/App.css';
 import Header from './Components/header';
 import Routing from './Components/routes/routing';
 import validateUser from './Components/authentication/userValidation';
-import React, { useEffect, useState,createContext  } from 'react';
+import React, { useEffect, useState,createContext, Suspense  } from 'react';
 import Footer from './Components/footer';
-
+import { Suspense } from 'react';
+import Loading from './Components/loading';
 export const UserContext = createContext();
 function App() {
 
@@ -57,7 +58,7 @@ const validate = () =>{
     </UserContext.Provider>
 
    <UserContext.Provider value={user}>
-      {validated && <Routing isAuthenticated = {isAuthenticated} user={user} setAuth={setAuth} validateUser = {validate}/>}
+      {validated && <Suspense fallback={<Loading/>} ><Routing isAuthenticated = {isAuthenticated} user={user} setAuth={setAuth} validateUser = {validate}/></Suspense>}
       </UserContext.Provider>
 
       <Footer/>
