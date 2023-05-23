@@ -13,7 +13,7 @@ const [formData,setformData] = useState({
 const postData =  (data) =>{
   
   console.log(data);
-  if(data.)
+  
   try{
   fetch("https://pbookserver.onrender.com/upload",{
     
