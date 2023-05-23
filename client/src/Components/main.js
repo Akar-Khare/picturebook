@@ -1,4 +1,4 @@
-import React, { useState , useEffect, useContext} from 'react'
+import React, { useState , useEffect, useContext, Suspense} from 'react'
 import './css/main.css'
 import AddImage from './addImage'
 import { Link, Navigate, useLocation} from "react-router-dom";
@@ -141,7 +141,7 @@ const Main=({profile})=> {
 
    {/* Main cards */}
   
-  {cards && cards.map((item)=><MainItems handleDelete={handleDelete} data={item} deleteItem={deleteItem} posted={true} profile={profile} />
+  {cards && cards.map((item)=><Suspense><MainItems handleDelete={handleDelete} data={item} deleteItem={deleteItem} posted={true} profile={profile} /></Suspense>
   )}
     
   
