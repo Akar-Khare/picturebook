@@ -13,6 +13,7 @@ const [formData,setformData] = useState({
 const postData =  (data) =>{
   
   console.log(data);
+  if(data.)
   try{
   fetch("https://pbookserver.onrender.com/upload",{
     
@@ -45,10 +46,10 @@ const addSubmit = (e) =>{
   const reader = new FileReader();
   reader.addEventListener("load", () => {
      // Base64 Data URL 
-  let cardId = Math.floor(Math.random()*1000);
+
   let newData =  {
     key: cardId,
-    link: reader.result ? reader.result : "https://picsum.photos/200?random="+cardId,
+    link: reader.result, 
     name: formData.name ? formData.name:cardId,
     desc: formData.desc ? formData.desc:""
   };
@@ -59,7 +60,17 @@ const addSubmit = (e) =>{
 
      console.log(reader.result);
  });
-  reader.readAsDataURL(file);
+  try{reader.readAsDataURL(file);}
+  catch(err){ 
+    let cardId = Math.floor(Math.random()*1000);
+    postData({
+    key: cardId,
+    link: reader.result ? reader.result : "https://picsum.photos/200?random="+cardId,
+    name: formData.name ? formData.name:cardId,
+    desc: formData.desc ? formData.desc:""
+  });
+  props.setAddBox(false);
+}
 
 
   // link: formData.link ? formData.link : "https://picsum.photos/200?random="+cardId,
