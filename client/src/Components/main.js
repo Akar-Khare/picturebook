@@ -141,8 +141,8 @@ const Main=({profile})=> {
 
    {/* Main cards */}
   
-  {cards && cards.map((item)=><Suspense fallback={<div>LOADING CONTENTS</div>}><MainItems handleDelete={handleDelete} data={item} deleteItem={deleteItem} posted={true} profile={profile} /></Suspense>
-  )}
+   <Suspense fallback={<div>LOADING CONTENTS</div>}>{cards && cards.map((item)=><MainItems handleDelete={handleDelete} data={item} deleteItem={deleteItem} posted={true} profile={profile} />
+  )}</Suspense>
     
   
   </div>
