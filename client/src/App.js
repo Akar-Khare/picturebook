@@ -4,7 +4,7 @@ import Routing from './Components/routes/routing';
 import validateUser from './Components/authentication/userValidation';
 import React, { useEffect, useState,createContext, Suspense  } from 'react';
 import Footer from './Components/footer';
-import Loading from './Components/loading';
+
 export const UserContext = createContext();
 function App() {
 
@@ -57,7 +57,7 @@ const validate = () =>{
     </UserContext.Provider>
 
    <UserContext.Provider value={user}>
-      {validated && <Suspense fallback={<Loading/>} ><Routing isAuthenticated = {isAuthenticated} user={user} setAuth={setAuth} validateUser = {validate}/></Suspense>}
+      {validated && <Routing isAuthenticated = {isAuthenticated} user={user} setAuth={setAuth} validateUser = {validate}/>}
       </UserContext.Provider>
 
       <Footer/>
