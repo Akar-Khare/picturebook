@@ -40,7 +40,7 @@ function MainItems({data, user,profile, handleDelete,isAuthenticated,posted, lik
     <img onLoad={()=>setLoaded(true)}  style={loaded ? {transition:"all 0.7s ease",transform: "scale(1)"}: {transform: "scale(0.9)"}} className="card-img-top" src={data.card.link} alt="Card cap"/>
     <div className="card-body">
       <h5 className="card-title">Card {data.card.name}</h5>
-      <p className="card-text" style={{ fontFamily: "Lucida Handwriting,Cursive"}} >- {data.card.desc}</p>
+      <p className="card-text" style={{ fontFamily: "Arial"}} >- {data.card.desc}</p>
         {profile ? <div><button  type="button" className='btn btn-outline-danger'  onClick={()=>{handleDelete(data._id)}} style={{width: 'fit-content',float:'left'}}><svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash-fill" viewBox="0 0 16 16">
   <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
 </svg></button></div> : !posted && <div style={{display:"flex",width:"100%",justifyContent:"right"}}><h6 style={{fontStyle:"italic"}}>{`Posted By : ${data.userName}`}</h6></div>}
