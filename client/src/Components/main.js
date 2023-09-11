@@ -6,7 +6,8 @@ import { UserContext } from '../App';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Loading from './loading';
-const MainItems = React.lazy(() => import('./mainItems'));
+import MainItems from './mainItems';
+// const MainItems = React.lazy(() => import('./mainItems'));
 
 
 const Main=({profile})=> {
