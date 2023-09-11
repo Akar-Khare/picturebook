@@ -2,7 +2,7 @@ import React from 'react'
 import { FallingLines } from  'react-loader-spinner'
 const Loading = () => {
   return (
-    <div><FallingLines
+    <div style={{width:"100%",border:"2px solid black"}}><FallingLines
     color="#4fa94d"
     width="100"
     visible={true}

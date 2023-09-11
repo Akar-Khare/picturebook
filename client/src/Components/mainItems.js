@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Loading from './loading';
 
 let mainStyle = {
   width: '18rem',
@@ -36,7 +37,7 @@ function MainItems({data, user,profile, handleDelete,isAuthenticated,posted, lik
 
 
 
-   <div className="card"  style={loaded ? mainStyle:{transform: "scale(0.8)"}}  key ={data.card.key} >
+   {/* <div className="card"  style={loaded ? mainStyle:{transform: "scale(0.8)"}}  key ={data.card.key} >
     <img onLoad={()=>setLoaded(true)}  style={loaded ? {transition:"all 0.7s ease",transform: "scale(1)"}: {transform: "scale(0.9)"}} className="card-img-top" src={data.card.link} alt="Card cap"/>
     <div className="card-body">
       <h5 className="card-title">Post#{data.card.name}</h5>
@@ -55,7 +56,8 @@ function MainItems({data, user,profile, handleDelete,isAuthenticated,posted, lik
 
 
     </div>
-    </div>
+    </div> */}
+    <Loading/>
   </>
   )
 }
