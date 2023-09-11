@@ -144,7 +144,7 @@ const Main=({profile})=> {
 
    {/* Main cards */}
   
- {cards ? cards.map((item)=><MainItems handleDelete={handleDelete} data={item} deleteItem={deleteItem} posted={true} profile={profile} />)
+ {cards.length ? cards.map((item)=><MainItems handleDelete={handleDelete} data={item} deleteItem={deleteItem} posted={true} profile={profile} />)
   : <Loading/>
 }
     
