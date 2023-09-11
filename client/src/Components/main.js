@@ -5,7 +5,9 @@ import { Link, Navigate, useLocation} from "react-router-dom";
 import { UserContext } from '../App';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import Loading from './loading';
 const MainItems = React.lazy(() => import('./mainItems'));
+
 
 const Main=({profile})=> {
 
@@ -22,6 +24,7 @@ const Main=({profile})=> {
   const [show, setShow] = useState(false);
   const [delId,setDelId] = useState();
   const [about,showAbout] =useState(false);
+  
 
   const handleClose = () => {
     setShow(false);
@@ -141,8 +144,9 @@ const Main=({profile})=> {
 
    {/* Main cards */}
   
-   <Suspense fallback={<h3>LOADING CONTENTS</h3>}>{cards && cards.map((item)=><MainItems handleDelete={handleDelete} data={item} deleteItem={deleteItem} posted={true} profile={profile} />
-  )}</Suspense>
+ {cards ? cards.map((item)=><MainItems handleDelete={handleDelete} data={item} deleteItem={deleteItem} posted={true} profile={profile} />)
+  : <Loading/>
+}
     
   
   </div>

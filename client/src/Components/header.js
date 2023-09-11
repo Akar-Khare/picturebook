@@ -13,7 +13,7 @@ let dropStyle={display:'flex',justifyContent:'center'};
 function Header() {
 
   const user = useContext(UserContext);
-  console.log("Header User :"+user)
+  // console.log("Header User :"+user)
   
  
   return (

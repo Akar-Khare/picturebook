@@ -13,7 +13,7 @@ const Feeds = lazy(()=>import('../feeds'));
 const Routing = ({isAuthenticated,setAuth,validateUser}) => {
   
 
-  console.log("In Routing Auth was "+isAuthenticated )
+  // console.log("In Routing Auth was "+isAuthenticated )
 
 
 return  (

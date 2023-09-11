@@ -4,7 +4,7 @@ import MainItems from './mainItems';
 
 const Feeds = ({isAuthenticated}) => {
 
-  console.log("In feeds")
+  // console.log("In feeds")
   
 
   const [allPosts,setAllPosts] = useState([]);
@@ -46,7 +46,7 @@ const Feeds = ({isAuthenticated}) => {
       body: JSON.stringify({cardId:id,liked:liked})
     }).then((res)=>{
       
-      console.log("Like status "+res.status)
+      // console.log("Like status "+res.status)
       if(res.status===201)
        setLike(!Like);
    

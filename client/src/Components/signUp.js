@@ -27,7 +27,7 @@ function SignUp() {
     
     if(password !== cpassword){
       document.getElementById('passNotMatched').innerText="Passwords don't Match";
-      console.log("Password not matched")
+      // console.log("Password not matched")
       return;
     }
 

@@ -15,12 +15,12 @@ let mainStyle = {
 function MainItems({data, user,profile, handleDelete,isAuthenticated,posted, likePost}) {
  
 
-  user && console.log("User name id "+user.name,user.id);
+  // user && console.log("User name id "+user.name,user.id);
   let defaultLike = user && data.card.likedBy.includes(user.id) ? true : false;
   const [liked,setLiked] = useState(defaultLike);
   const [loaded,setLoaded] = useState(false);
 
-  console.log("Data source: "+data.card.link);
+  // console.log("Data source: "+data.card.link);
   const toggleLike = (value)=>{
 
     setLiked(value);

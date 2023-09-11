@@ -10,7 +10,7 @@ import setCookie from './authentication/setCookie';
 
 
   
-console.log("Sign in is"+isAuthenticated)
+// console.log("Sign in is"+isAuthenticated)
   const [loginForm,setLoginForm] = useState({ email:"", password:""});
  
   const handleRegChange = (e)=>{
