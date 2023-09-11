@@ -139,17 +139,20 @@ const Main=({profile})=> {
     { profile && addBox && <AddImage setAddBox={setAddBox} getCards={getCards}/>} 
 
     {user && <div><h5>{user.name}</h5><h6 style={{color:"grey"}}>Gallery</h6></div>}
-  <div className={addBox ? 'card-container-blur' : 'card-container'}>
+    {cards.length ?
+    <div className={addBox ? 'card-container-blur' : 'card-container'}>
   
 
    {/* Main cards */}
   
- {cards.length ? cards.map((item)=><MainItems handleDelete={handleDelete} data={item} deleteItem={deleteItem} posted={true} profile={profile} />)
-  : <Loading/>
+ {cards.map((item)=><MainItems handleDelete={handleDelete} data={item} deleteItem={deleteItem} posted={true} profile={profile} />)}
+  
+  </div>
+  :  <Loading/>
 }
     
   
-  </div>
+ 
 
 
     </>
