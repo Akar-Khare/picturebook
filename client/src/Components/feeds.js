@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../App';
 import MainItems from './mainItems';
+import Loading from './loading';
 
 const Feeds = ({isAuthenticated}) => {
 
@@ -59,11 +60,15 @@ useEffect(()=>{getAllPosts()},[Like])
    <>
     
      <div style={{textAlign: "center",marginTop:"20px"}}>{user &&<h5 > {`Welcome ${user.name}`}</h5>}<h6  style={{color:"grey"}}>Stories</h6></div>
-     {allPosts[0] &&   <div className='card-container' > 
+     {allPosts[0] ?   
+     
+     <div className='card-container' > 
   {allPosts.map((post)=><MainItems data={post} user={user} likePost={likePost} isAuthenticated={isAuthenticated}/>) }
  
 
-   </div>}
+   </div>
+  :  <Loading/>
+  }
    
    {/* : <h5>{`No posts :(`}</h5>} */}
 
