@@ -3,6 +3,7 @@ import { UserContext } from '../App';
 import MainItems from './mainItems';
 import Loading from './loading';
 
+
 const Feeds = ({isAuthenticated}) => {
 
   // console.log("In feeds")

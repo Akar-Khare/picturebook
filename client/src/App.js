@@ -49,7 +49,7 @@ const validate = () =>{
     useEffect(()=> {validate()},[]);
 
  
-  console.log("this User:"+user)
+  // console.log("this User:"+user)
   return (
    <>
   <UserContext.Provider value={user}>
