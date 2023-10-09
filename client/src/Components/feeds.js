@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../App';
 import MainItems from './mainItems';
 import Loading from './loading';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 
 const Feeds = ({isAuthenticated}) => {
@@ -68,7 +70,9 @@ useEffect(()=>{getAllPosts()},[Like])
  
 
    </div>
-  :  <Loading/>
+  :  
+  <><Skeleton /> 
+  <Skeleton count={5} /></>
   }
    
    {/* : <h5>{`No posts :(`}</h5>} */}
