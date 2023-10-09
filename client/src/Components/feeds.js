@@ -6,6 +6,7 @@ import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 
+
 const Feeds = ({isAuthenticated}) => {
 
   // console.log("In feeds")
@@ -57,6 +58,8 @@ const Feeds = ({isAuthenticated}) => {
    
     });
   }
+ 
+
 
 useEffect(()=>{getAllPosts()},[Like])
     
@@ -72,8 +75,10 @@ useEffect(()=>{getAllPosts()},[Like])
 
    </div>
   :  
-  <div style={{display:"flex", flexWrap :"wrap",width:"50px"}}>
-   {skeletonCount.map((skel)=><div><Skeleton containerClassName="flex-1" count={5} />HI</div>)}
+  <div className='card-container' style={{width:"100%",gap:"10px"}}> 
+   {skeletonCount.map((skel)=><div style={{width:"15%",marginBottom:"100px"}}> 
+   <Skeleton width="100%"height={300} style={{marginBottom:'10px'}}/>
+   <Skeleton width="100%" count={3} height={30} style={{marginBottom:'10px'}}/></div>)}
         
   </div>
   }
