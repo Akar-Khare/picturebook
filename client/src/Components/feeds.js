@@ -71,7 +71,7 @@ useEffect(()=>{getAllPosts()},[Like])
 
    </div>
   :  
-  <><Skeleton /> 
+  <>
   <Skeleton count={5} /></>
   }
    
