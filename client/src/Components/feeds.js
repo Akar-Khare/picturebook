@@ -14,6 +14,7 @@ const Feeds = ({isAuthenticated}) => {
   const [allPosts,setAllPosts] = useState([]);
   const user = useContext(UserContext);
   const [Like,setLike] = useState(false);
+  const skeletonCount=[0,0,0,0,0,0,0,0,0,0,0,0];
   
   const getAllPosts = async() =>{
     const res = await fetch("https://pbookserver.onrender.com/cards",{
@@ -71,23 +72,9 @@ useEffect(()=>{getAllPosts()},[Like])
 
    </div>
   :  
-  <div>
-   <ul>
-    <li><Skeleton count={5} /></li>
-    <li><Skeleton count={5} /></li>
-    <li><Skeleton count={5} /></li>
-    <li><Skeleton count={5} /></li>
-    <li><Skeleton count={5} /></li>
-    <li><Skeleton count={5} /></li>
-    <li><Skeleton count={5} /></li>
-    <li><Skeleton count={5} /></li>
-    <li><Skeleton count={5} /></li>
-    <li><Skeleton count={5} /></li>
-    <li><Skeleton count={5} /></li>
-    <li><Skeleton count={5} /></li>
-    <li><Skeleton count={5} /></li>
-    
-    </ul>    
+  <div style={{display:"flex", flexWrap :"wrap"}}>
+   {skeletonCount.map((skel)=><div><Skeleton count={5} /></div>)}
+        
   </div>
   }
    
