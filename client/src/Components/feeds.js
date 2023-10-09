@@ -72,7 +72,23 @@ useEffect(()=>{getAllPosts()},[Like])
    </div>
   :  
   <div>
-  <Skeleton count={5} /><div/>
+   <ul>
+    <li><Skeleton count={5} /></li>
+    <li><Skeleton count={5} /></li>
+    <li><Skeleton count={5} /></li>
+    <li><Skeleton count={5} /></li>
+    <li><Skeleton count={5} /></li>
+    <li><Skeleton count={5} /></li>
+    <li><Skeleton count={5} /></li>
+    <li><Skeleton count={5} /></li>
+    <li><Skeleton count={5} /></li>
+    <li><Skeleton count={5} /></li>
+    <li><Skeleton count={5} /></li>
+    <li><Skeleton count={5} /></li>
+    <li><Skeleton count={5} /></li>
+    
+    </ul>    
+  </div>
   }
    
    {/* : <h5>{`No posts :(`}</h5>} */}
