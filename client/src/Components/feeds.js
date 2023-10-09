@@ -73,7 +73,7 @@ useEffect(()=>{getAllPosts()},[Like])
    </div>
   :  
   <div style={{display:"flex", flexWrap :"wrap"}}>
-   {skeletonCount.map((skel)=><div><Skeleton count={5} /></div>)}
+   {skeletonCount.map((skel)=><div><Skeleton containerClassName="flex-1" count={5} /></div>)}
         
   </div>
   }
